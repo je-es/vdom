@@ -1,0 +1,23 @@
+{
+	"type"              : "lib",
+	"template"          : "clean",
+	"pm"                : "bun",
+	"repo"              : {
+		"org"           : "je-es",
+		"name"          : "vdom",
+		"version"       : "0.0.1",
+		"desc"          : "The Virtual DOM library you'll actually enjoy using.",
+		"kw"            : ["je-es", "virtual", "dom"],
+		"license"       : "MIT",
+		"issues"        : "https://github.com/je-es/vdom/issues",
+		"homepage"      : "https://github.com/je-es/vdom#readme",
+		"git_url"       : "git+https://github.com/je-es/vdom.git"
+	},
+	"author"            : {
+		"id"            : "maysara-elshewehy",
+		"name"          : "Maysara",
+		"email"         : "maysara.elshewehy@gmail.com",
+		"url"           : "https://github.com/maysara-elshewehy"
+	},
+	"createdAt"         : "2025-12-02T00:53:13.682Z"
+}
