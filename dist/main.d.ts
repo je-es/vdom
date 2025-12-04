@@ -13,9 +13,7 @@ type VNodeChildren = VNodeChild | VNodeChild[];
 /**
  * Style object type
  */
-type StyleObject = Partial<CSSStyleDeclaration> & {
-    [key: string]: string | number | undefined;
-};
+type StyleObject = Partial<CSSStyleDeclaration> & Record<string, string | number | undefined>;
 /**
  * Event handler type
  */
@@ -37,14 +35,14 @@ interface VNode {
  * Extended by HTMLAttributes, BooleanAttributes, etc. in the complete type system
  */
 interface VNodeProps {
-    [key: string]: any;
+    [key: string]: unknown;
     children?: VNodeChild[];
     className?: string;
     class?: string;
     style?: string | StyleObject;
     ref?: RefCallback;
     key?: string | number;
-    [key: `data-${string}`]: any;
+    [key: `data-${string}`]: unknown;
 }
 
 /**
@@ -188,8 +186,8 @@ interface EventHandlers extends MouseEventHandlers, KeyboardEventHandlers, FormE
 interface ParseContext {
     eventHandlers: Map<string, EventHandler>;
     vnodes: Map<string, VNode>;
-    arrays: Map<string, any[]>;
-    plainValues: Map<string, any>;
+    arrays: Map<string, VNodeChildren[]>;
+    plainValues: Map<string, unknown>;
 }
 /**
  * Keyed child info for efficient patching
@@ -243,7 +241,7 @@ interface Markers {
  * const vnode = createElement('div', { className: 'box' }, 'Hello World');
  * ```
  */
-declare function createElement(type: string | 'fragment', props: VNodeProps | null, ...children: any[]): VNode;
+declare function createElement(type: string | 'fragment', props: VNodeProps | null, ...children: VNodeChildren[]): VNode;
 /**
  * Create a fragment (wrapper for multiple children without parent element)
  *
@@ -277,7 +275,7 @@ declare const jsxDEV: typeof createElement;
  *
  * FIX: Store event handlers separately and apply after parsing to avoid HTML parser issues
  */
-declare function html(strings: TemplateStringsArray, ...values: any[]): VNode;
+declare function html(strings: TemplateStringsArray, ...values: unknown[]): VNode;
 
 /**
  * Create a real DOM element from a VNode
@@ -317,11 +315,11 @@ declare function updateProps(element: HTMLElement, oldProps: VNodeProps, newProp
 /**
  * Set a single property on element
  */
-declare function setProperty(element: HTMLElement, key: string, value: any, oldValue?: any): void;
+declare function setProperty(element: HTMLElement, key: string, value: unknown, oldValue?: unknown): void;
 /**
  * Remove a property from element
  */
-declare function removeProperty(element: HTMLElement, key: string, oldValue: any): void;
+declare function removeProperty(element: HTMLElement, key: string, oldValue: unknown): void;
 
 /**
  * Set global configuration
@@ -358,29 +356,29 @@ declare function createErrorPlaceholder(error: Error): Text;
 /**
  * Validate VNode structure
  */
-declare function validateVNode(vnode: any): vnode is VNode;
+declare function validateVNode(vnode: unknown): vnode is VNode;
 /**
  * Wrap function with error handling
  */
-declare function withErrorHandling<T extends (...args: any[]) => any>(fn: T, context?: string): T;
+declare function withErrorHandling<TArgs extends unknown[], TReturn>(fn: (...args: TArgs) => TReturn, context?: string): (...args: TArgs) => TReturn | null;
 
 /**
  * Check if value should be skipped in rendering
  */
-declare function isNullOrBoolean(value: any): value is false | null | undefined | true;
+declare function isNullOrBoolean(value: unknown): value is false | null | undefined | true;
 /**
  * Check if value is a VNode
  * FIX: Return false for null instead of null
  */
-declare function isVNode(value: any): boolean;
+declare function isVNode(value: unknown): boolean;
 /**
  * Check if value is a primitive that can be rendered
  */
-declare function isPrimitive(value: any): value is string | number;
+declare function isPrimitive(value: unknown): value is string | number;
 /**
  * Flatten nested children arrays recursively
  */
-declare function flattenChildren(children: any[]): VNodeChild[];
+declare function flattenChildren(children: VNodeChildren[]): VNodeChild[];
 /**
  * Sanitize HTML to prevent XSS attacks
  */
@@ -392,7 +390,7 @@ declare function camelToKebab(str: string): string;
 /**
  * Check if two values are equal (shallow comparison)
  */
-declare function shallowEqual(a: any, b: any): boolean;
+declare function shallowEqual(a: unknown, b: unknown): boolean;
 declare function generateId(prefix?: string): string;
 /**
  * Check if code is running in browser environment
@@ -405,7 +403,7 @@ declare function getChildAt(parent: HTMLElement, index: number): Node | undefine
 /**
  * Check if value is a function
  */
-declare function isFunction(value: any): value is Function;
+declare function isFunction(value: unknown): value is (...args: unknown[]) => unknown;
 /**
  * Check if string is an event handler prop name
  */
