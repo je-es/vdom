@@ -241,7 +241,7 @@ interface Markers {
  * const vnode = createElement('div', { className: 'box' }, 'Hello World');
  * ```
  */
-declare function createElement(type: string | 'fragment', props: VNodeProps | null, ...children: VNodeChildren[]): VNode;
+declare function createElement(type: string | 'fragment', props?: VNodeProps | null, ...children: VNodeChildren[]): VNode;
 /**
  * Create a fragment (wrapper for multiple children without parent element)
  *

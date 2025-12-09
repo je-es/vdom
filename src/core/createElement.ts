@@ -31,7 +31,7 @@
      */
     export function createElement(
         type: string | 'fragment',
-        props: VNodeProps | null,
+        props: VNodeProps | null = null,
         ...children: VNodeChildren[]
     ): VNode {
         // Validate type in development
