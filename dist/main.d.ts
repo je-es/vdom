@@ -241,7 +241,7 @@ interface Markers {
  * const vnode = createElement('div', { className: 'box' }, 'Hello World');
  * ```
  */
-declare function createElement(type: string | 'fragment', props?: VNodeProps | null, ...children: VNodeChildren[]): VNode;
+declare function createElement(type: string | 'fragment', props?: VNodeProps | string | null, ...children: VNodeChildren[]): VNode;
 /**
  * Create a fragment (wrapper for multiple children without parent element)
  *
@@ -258,10 +258,29 @@ declare function createElement(type: string | 'fragment', props?: VNodeProps | n
  */
 declare function Fragment(...children: VNodeChild[]): VNode;
 /**
+ * Create a text node
+ *
+ * @param text - Text content
+ * @returns String that will be rendered as text
+ */
+declare function createTextNode(text: string | number): string;
+/**
  * JSX Factory function (for JSX pragma)
  * Alias for createElement to be used with JSX
  */
 declare const h: typeof createElement;
+declare const div: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const span: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const h1: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const h2: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const h3: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const h4: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const h5: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const h6: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const p: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const i: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const a: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const img: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 /**
  * JSX Fragment factory
  */
@@ -417,4 +436,4 @@ declare function getEventName(propName: string): string;
  */
 declare function deepClone<T>(obj: T): T;
 
-export { type ARIAAttributes, type BooleanAttributes, type DragEventHandlers, type EventHandler, type EventHandlers, type FormAttributes, type FormEventHandlers, Fragment, type HTMLAttributes, type KeyboardEventHandlers, type KeyedChildInfo, type Markers, type MouseEventHandlers, type OtherEventHandlers, type ParseContext, type RefCallback, type RenderFunction, type StyleObject, type TouchEventHandlers, type VDOMConfig, VDOMError, type VNode, type VNodeChild, type VNodeChildren, type VNodePrimitive, type VNodeProps, assert, camelToKebab, createDOMElement, createElement, createErrorPlaceholder, deepClone, flattenChildren, generateId, getChildAt, getConfig, getEventName, h, handleError, html, isBrowser, isEventProp, isFunction, isNullOrBoolean, isPrimitive, isVNode, jsx, jsxDEV, jsxs, patch, removeProperty, render, sanitizeHTML, setConfig, setProperty, shallowEqual, updateProps, validateVNode, warn, withErrorHandling };
+export { type ARIAAttributes, type BooleanAttributes, type DragEventHandlers, type EventHandler, type EventHandlers, type FormAttributes, type FormEventHandlers, Fragment, type HTMLAttributes, type KeyboardEventHandlers, type KeyedChildInfo, type Markers, type MouseEventHandlers, type OtherEventHandlers, type ParseContext, type RefCallback, type RenderFunction, type StyleObject, type TouchEventHandlers, type VDOMConfig, VDOMError, type VNode, type VNodeChild, type VNodeChildren, type VNodePrimitive, type VNodeProps, a, assert, camelToKebab, createDOMElement, createElement, createErrorPlaceholder, createTextNode, deepClone, div, flattenChildren, generateId, getChildAt, getConfig, getEventName, h, h1, h2, h3, h4, h5, h6, handleError, html, i, img, isBrowser, isEventProp, isFunction, isNullOrBoolean, isPrimitive, isVNode, jsx, jsxDEV, jsxs, p, patch, removeProperty, render, sanitizeHTML, setConfig, setProperty, shallowEqual, span, updateProps, validateVNode, warn, withErrorHandling };

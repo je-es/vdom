@@ -31,7 +31,7 @@
      */
     export function createElement(
         type: string | 'fragment',
-        props: VNodeProps | null = null,
+        props: VNodeProps | string | null = null,
         ...children: VNodeChildren[]
     ): VNode {
         // Validate type in development
@@ -39,6 +39,10 @@
             if (!type || typeof type !== 'string') {
                 warn(`Invalid element type: ${type}`);
             }
+        }
+
+        if(typeof props === 'string') {
+            props = { className: props };
         }
 
         const flatChildren = flattenChildren(children);
@@ -99,6 +103,42 @@
      * Alias for createElement to be used with JSX
      */
     export const h = createElement;
+    export const div = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('div', props, ...children);
+    };
+    export const span = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('span', props, ...children);
+    };
+    export const h1 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h1', props, ...children);
+    };
+    export const h2 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h2', props, ...children);
+    };
+    export const h3 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h3', props, ...children);
+    };
+    export const h4 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h4', props, ...children);
+    };
+    export const h5 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h5', props, ...children);
+    };
+    export const h6 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h6', props, ...children);
+    };
+    export const p = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('p', props, ...children);
+    };
+    export const i = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('i', props, ...children);
+    };
+    export const a = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('a', props, ...children);
+    };
+    export const img = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('img', props, ...children);
+    };
 
     /**
      * JSX Fragment factory

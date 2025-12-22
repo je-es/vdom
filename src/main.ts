@@ -6,7 +6,10 @@
 
 // ╔════════════════════════════════════════ PACK ════════════════════════════════════════╗
 
-    export { createElement, Fragment, h, jsx, jsxs, jsxDEV } from './core/createElement';
+    export {
+        createElement, createTextNode, Fragment, jsx, jsxs, jsxDEV,
+        h, div, h1, h2, h3, h4, h5, h6, p, i, span, a, img
+    } from './core/createElement';
     export { html } from './core/html';
     export { render, createDOMElement } from './core/render';
     export { patch } from './core/patch';
