@@ -6,69 +6,15 @@
 
 // ╔════════════════════════════════════════ PACK ════════════════════════════════════════╗
 
-    export {
-        createElement, createTextNode, Fragment, jsx, jsxs, jsxDEV,
-        h, div, h1, h2, h3, h4, h5, h6, p, i, span, a, img
-    } from './core/createElement';
-    export { html } from './core/html';
-    export { render, createDOMElement } from './core/render';
-    export { patch } from './core/patch';
-    export { updateProps, setProperty, removeProperty } from './core/props';
+    export type * from './types';
 
-    export {
-        setConfig,
-        getConfig,
-        VDOMError,
-        handleError,
-        warn,
-        assert,
-        createErrorPlaceholder,
-        validateVNode,
-        withErrorHandling
-    } from './utils/errors';
+    export * from './core/createElement';
+    export * from './core/html';
+    export * from './core/render';
+    export * from './core/patch';
+    export * from './core/props';
 
-    export {
-        isNullOrBoolean,
-        isVNode,
-        isPrimitive,
-        flattenChildren,
-        sanitizeHTML,
-        camelToKebab,
-        shallowEqual,
-        generateId,
-        isBrowser,
-        getChildAt,
-        isFunction,
-        isEventProp,
-        getEventName,
-        deepClone
-    } from './utils/helpers';
-
-    export type {
-        VNode,
-        VNodeProps,
-        VNodeChild,
-        VNodeChildren,
-        VNodePrimitive,
-        StyleObject,
-        EventHandler,
-        RefCallback,
-        VDOMConfig,
-        ParseContext,
-        KeyedChildInfo,
-        RenderFunction,
-        Markers,
-        HTMLAttributes,
-        BooleanAttributes,
-        FormAttributes,
-        ARIAAttributes,
-        MouseEventHandlers,
-        KeyboardEventHandlers,
-        FormEventHandlers,
-        TouchEventHandlers,
-        DragEventHandlers,
-        OtherEventHandlers,
-        EventHandlers
-    } from './types';
+    export * from './utils/errors';
+    export * from './utils/helpers';
 
 // ╚══════════════════════════════════════════════════════════════════════════════════════╝

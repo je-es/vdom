@@ -5,7 +5,7 @@
 	"repo"              : {
 		"org"           : "je-es",
 		"name"          : "vdom",
-		"version"       : "0.0.3",
+		"version"       : "0.0.4",
 		"desc"          : "The Virtual DOM library you'll actually enjoy using.",
 		"kw"            : ["je-es", "virtual", "dom"],
 		"license"       : "MIT",

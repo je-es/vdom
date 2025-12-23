@@ -146,8 +146,7 @@
             });
 
             test('should not set boolean attribute when false', () => {
-                // Line 242: skip setting when false
-                // FIXED: Now correctly checks for 'false' string and skips setting the prop
+                // Now correctly checks for 'false' string and skips setting the prop
                 const vnode = html`<input checked="${false}" required="${false}" />`;
                 expect(Object.prototype.hasOwnProperty.call(vnode.props, 'checked')).toBe(false);
                 expect(Object.prototype.hasOwnProperty.call(vnode.props, 'required')).toBe(false);
@@ -499,7 +498,7 @@
 
         describe('Lines 133-135: setProperty - early return for children and key', () => {
             test('should return early when key is children', () => {
-                // FIXED: Pass actual children to render, not just as a prop
+                // Pass actual children to render, not just as a prop
                 const vnode = createElement('div', { children: ['should', 'be', 'ignored'] }, 'Actual child');
                 render(vnode, container);
                 const div = container.querySelector('div')!;

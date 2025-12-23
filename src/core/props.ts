@@ -229,7 +229,7 @@
     /**
      * Set boolean attribute
      *
-     * FIXED: Treat any value except false, null, undefined as true
+     * Treat any value except false, null, undefined as true
      * This matches HTML spec and common framework behavior
      * Special case: empty string '' is valid and sets the attribute
      */

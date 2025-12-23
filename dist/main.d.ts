@@ -271,16 +271,23 @@ declare function createTextNode(text: string | number): string;
 declare const h: typeof createElement;
 declare const div: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const span: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const label: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const input: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const textarea: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const select: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const option: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const button: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const form: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const p: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const h1: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const h2: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const h3: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const h4: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const h5: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const h6: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
-declare const p: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
-declare const i: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const a: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 declare const img: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
+declare const i: (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]) => VNode;
 /**
  * JSX Fragment factory
  */
@@ -317,6 +324,19 @@ declare function createDOMElement(vnode: VNode | string | number): HTMLElement |
  */
 declare function render(vnode: VNode, container: HTMLElement): void;
 
+/**
+ * Patch children by index (simple diffing without keys)
+ */
+declare function patchChildrenByIndex(parent: HTMLElement, oldChildren: VNodeChild[], newChildren: VNodeChild[]): void;
+/**
+ * Patch children with keys (optimized diffing)
+ * Properly map VNode children to DOM elements
+ */
+declare function patchChildrenWithKeys(parent: HTMLElement, oldChildren: VNodeChild[], newChildren: VNodeChild[]): void;
+/**
+ * Patch children - decides between keyed and simple patching
+ */
+declare function patchChildren(parent: HTMLElement, oldChildren: VNodeChild[], newChildren: VNodeChild[]): void;
 /**
  * Patch/diff algorithm - updates DOM based on VNode changes
  *
@@ -436,4 +456,4 @@ declare function getEventName(propName: string): string;
  */
 declare function deepClone<T>(obj: T): T;
 
-export { type ARIAAttributes, type BooleanAttributes, type DragEventHandlers, type EventHandler, type EventHandlers, type FormAttributes, type FormEventHandlers, Fragment, type HTMLAttributes, type KeyboardEventHandlers, type KeyedChildInfo, type Markers, type MouseEventHandlers, type OtherEventHandlers, type ParseContext, type RefCallback, type RenderFunction, type StyleObject, type TouchEventHandlers, type VDOMConfig, VDOMError, type VNode, type VNodeChild, type VNodeChildren, type VNodePrimitive, type VNodeProps, a, assert, camelToKebab, createDOMElement, createElement, createErrorPlaceholder, createTextNode, deepClone, div, flattenChildren, generateId, getChildAt, getConfig, getEventName, h, h1, h2, h3, h4, h5, h6, handleError, html, i, img, isBrowser, isEventProp, isFunction, isNullOrBoolean, isPrimitive, isVNode, jsx, jsxDEV, jsxs, p, patch, removeProperty, render, sanitizeHTML, setConfig, setProperty, shallowEqual, span, updateProps, validateVNode, warn, withErrorHandling };
+export { type ARIAAttributes, type BooleanAttributes, type DragEventHandlers, type EventHandler, type EventHandlers, type FormAttributes, type FormEventHandlers, Fragment, type HTMLAttributes, type KeyboardEventHandlers, type KeyedChildInfo, type Markers, type MouseEventHandlers, type OtherEventHandlers, type ParseContext, type RefCallback, type RenderFunction, type StyleObject, type TouchEventHandlers, type VDOMConfig, VDOMError, type VNode, type VNodeChild, type VNodeChildren, type VNodePrimitive, type VNodeProps, a, assert, button, camelToKebab, createDOMElement, createElement, createErrorPlaceholder, createTextNode, deepClone, div, flattenChildren, form, generateId, getChildAt, getConfig, getEventName, h, h1, h2, h3, h4, h5, h6, handleError, html, i, img, input, isBrowser, isEventProp, isFunction, isNullOrBoolean, isPrimitive, isVNode, jsx, jsxDEV, jsxs, label, option, p, patch, patchChildren, patchChildrenByIndex, patchChildrenWithKeys, removeProperty, render, sanitizeHTML, select, setConfig, setProperty, shallowEqual, span, textarea, updateProps, validateVNode, warn, withErrorHandling };

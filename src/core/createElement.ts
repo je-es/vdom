@@ -45,6 +45,11 @@
             props = { className: props };
         }
 
+        if(typeof props === 'object' && props !== null && 'class' in props) {
+            props = { ...props, className: props.class };
+            delete props.class;
+        }
+
         const flatChildren = flattenChildren(children);
 
         // Handle fragments
@@ -106,38 +111,77 @@
     export const div = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
         return h('div', props, ...children);
     };
+
     export const span = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
         return h('span', props, ...children);
     };
-    export const h1 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('h1', props, ...children);
+
+    export const label = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('label', props, ...children);
     };
-    export const h2 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('h2', props, ...children);
+
+    export const input = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('input', props, ...children);
     };
-    export const h3 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('h3', props, ...children);
+
+    export const textarea = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('textarea', props, ...children);
     };
-    export const h4 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('h4', props, ...children);
+
+    export const select = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('select', props, ...children);
     };
-    export const h5 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('h5', props, ...children);
+
+    export const option = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('option', props, ...children);
     };
-    export const h6 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('h6', props, ...children);
+
+    export const button = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('button', props, ...children);
     };
+
+    export const form = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('form', props, ...children);
+    };
+
     export const p = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
         return h('p', props, ...children);
     };
-    export const i = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
-        return h('i', props, ...children);
+
+    export const h1 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h1', props, ...children);
     };
+
+    export const h2 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h2', props, ...children);
+    };
+
+    export const h3 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h3', props, ...children);
+    };
+
+    export const h4 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h4', props, ...children);
+    };
+
+    export const h5 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h5', props, ...children);
+    };
+
+    export const h6 = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('h6', props, ...children);
+    };
+
     export const a = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
         return h('a', props, ...children);
     };
+
     export const img = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
         return h('img', props, ...children);
+    };
+
+    export const i = (props?: VNodeProps | string | null | undefined, ...children: VNodeChildren[]): VNode => {
+        return h('i', props, ...children);
     };
 
     /**

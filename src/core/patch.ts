@@ -258,7 +258,7 @@
 
     /**
      * Update element in place
-     * FIXED: Detect if we're patching the parent element itself vs its children
+     * Detect if we're patching the parent element itself vs its children
      */
     function updateElement(
         parent: HTMLElement,

@@ -1,6 +1,6 @@
 {
 	"name"                             : "@je-es/vdom",
-	"version"                          : "0.0.3",
+	"version"                          : "0.0.4",
 	"description"                      : "The Virtual DOM library you'll actually enjoy using.",
 	"keywords"                         : ["je-es", "virtual", "dom"],
 	"license"                          : "MIT",

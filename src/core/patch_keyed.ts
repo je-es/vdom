@@ -157,7 +157,7 @@
 
     /**
      * Update element in place
-     * FIXED: When patching at index 0, we're updating the element itself, not its parent
+     * When patching at index 0, we're updating the element itself, not its parent
      */
     function updateElement(
         parent: HTMLElement,
